@@ -1,0 +1,339 @@
+*{
+    margin: 0% auto;
+    padding: 0%;
+    font-family: sans-serif;
+    position: relative;
+    background: linear-gradient(45deg, #fff , rgb(100, 107, 136));  /* Two background colors */
+    background-size: 100% 100%; /* Increase the background size for smooth movement */
+    transition: background-position 0.3s ease-out;
+}
+/* Styles for dark mode */
+
+
+/* _________________________________________Menu_________________________________________________ */
+body.menu-open {
+    overflow: hidden; /* Prevent scrolling when the menu is open */
+}
+/* Sidebar styling */
+.sidebar {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the menu */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    padding: 30px;
+    display: none; /* Hide menu by default */
+    z-index: 1000; /* Ensure the menu is below the menu icon */
+    border-radius: 8px; /* Rounded corners */
+    width: 550px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 15px;
+}
+
+.sidebar a {
+    color: rgb(100, 107, 136);
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+
+
+/* Sections styling */
+section {
+    padding: 100px 20px;
+    min-height: 100vh;
+}
+
+/* Adjust padding on sections when sidebar is open */
+body.sidebar-open {
+    padding-right: 250px;
+}
+
+/* _________________________________________Home Section_________________________________________________ */
+.container_home {
+    display: flex;
+    flex-direction: column;
+    padding-top: 150px;
+    gap: 100px;
+}
+/* ________________________Nav Bar Home ___________________ */
+
+.navbar_home {
+    display: flex;
+    align-items: center;
+    justify-content:baseline;
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 1001; 
+    padding: 5px;
+    gap: 70%;
+}
+.navbar_home img {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+.logo_home {
+    border-radius: 50%;
+}
+.list_home {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: none; 
+    background-color: transparent; 
+}
+
+/* __________________________Main Home______________________ */
+
+.main_home {
+    border-radius: 20px;
+    width: 50%;
+    height: 50%;
+    padding: 20px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* position: relative;
+    top: 200px; */
+    border: 10px solid white;
+    box-shadow: 20px 20px 20px 2px rgb(100, 107, 136);
+    font-family: "Comic Sans MS", "Chalkduster", "Cursive", sans-serif; /* Choose a fun font */
+    font-size: 50px; /* Text size */
+    font-weight: bold; /* Bold text for better visibility */
+    color: white; /* Bright color */
+    letter-spacing: 2px; /* Letter spacing */
+    text-transform: uppercase; /* Convert text to uppercase */
+    text-shadow: 2px 2px 0px rgb(100, 107, 136); /* Add a shadow to give depth */
+}
+
+.greeting {
+    font-size: 50px;
+    background: none; 
+    background-color: transparent; 
+}
+.text_home {
+    font-family: sans-serif;
+    font-size: 20px;
+    background-color: rgb(100, 107, 136);
+    border-radius: 20px;
+}
+
+/* ________________________Animation Home ______________________ */
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background-color:rgb(100, 107, 136);
+    animation: moveParticle 5s infinite ease-in-out;
+}
+@keyframes moveParticle {
+    0% {
+        transform: translate(0, 0) scale(1); 
+        opacity: 1;
+    }
+    50% {
+        transform: translate(400px, -100px) scale(1.5); 
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(-400px, 100px) scale(1); 
+        opacity: 1;
+    }
+}
+
+
+/* _________________________________________Education Section_________________________________________________ */
+
+.education{
+    padding: 20px;
+}
+.education h1 {
+    margin-top: 40px;
+    font-size: 50px;
+}
+
+.box {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    padding: 50px; 
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+}
+
+.box_left {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    font-family: 'Instrument Sans', sans-serif; 
+    font-size: 15px;
+    border: 2px solid beige ;
+    background-color: beige;
+    height: 300px;
+    border-radius: 5%;
+    color:  rgb(100, 107, 136);
+    width: 700px;
+    gap: 50px;
+    margin-right: 250px;
+    padding: 20px;
+    box-shadow: 20px 20px 20px 2px silver;
+    ;
+}
+
+
+.box_right {
+    display: flex;
+    height: 300px;
+    justify-content: space-around; 
+    align-items: center; 
+    font-family: 'Instrument Sans', sans-serif; 
+    font-size: 15px;
+    border-radius: 5%;
+    border: 2px solid beige ;
+    background-color:beige ;
+    color:  rgb(100, 107, 136);
+    width: 700px;
+    gap: 50px;
+    margin-left: 250px;
+    padding: 20px;
+    box-shadow: 20px 20px 20px 2px  silver;
+    ;
+}
+
+.box img {
+    width: 250px;
+    height: 200px; 
+    padding: 20px;
+}
+
+.box_left, .box_right,.skill-card {
+    transition: transform 0.3s; 
+}
+
+.box_left:hover, .box_right:hover, .skill-card:hover{
+    transform: scale(1.05); 
+}
+
+
+/* _________________________________________Technical Skills Section_________________________________________________ */
+
+
+
+.technical {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color:  rgb(100, 107, 136);
+    color: white; */
+    /* min-width: 300px; 
+    transition: transform 0.5s ease;
+    display: none;  */
+}
+.technical h1 {
+    /* color:  rgb(100, 107, 136);
+    font-size: 50px; */
+}
+
+.carousel {
+    /* display: flex;
+    align-items: center; */
+    /* margin-left: 50px;
+    padding: 50px;
+    gap: 200px; */
+}
+
+.carousel-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 30px;
+    overflow: hidden; */
+    width: 600px;
+    margin: 20px;
+    gap: 20px;
+}
+
+
+.technical.active {
+    display: block; 
+}
+
+
+.arrow {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: rgb(100, 107, 136);
+}
+.arrow button {
+    background-color:  rgb(100, 107, 136);
+    padding: 20px;
+    border: none;
+    border-radius: 25px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(100, 107, 136);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid  rgb(100, 107, 136);
+    width: 80%;
+}
+
+.close {
+    color: rgb(100, 107, 136);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#detailsBtn {
+    color: #2C2A32 ;
+    background-color: rgb(100, 107, 136);
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+}

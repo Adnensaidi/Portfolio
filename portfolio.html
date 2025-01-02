@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+<!-- ------------------------------------Menu------------------------- -->
+<!-- Sidebar menu -->
+  <div class="sidebar" id="sidebar">
+    <ul>
+        <li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
+        <li><a href="#education" onclick="scrollToSection('education')">Education</a></li>
+        <li><a href="#technical-skills" onclick="scrollToSection('technical-skills')">Technical Skills</a></li>
+        <li><a href="#projects" onclick="scrollToSection('projects')">Projects</a></li>
+        <li><a href="#skills" onclick="scrollToSection('skills')">Skills</a></li>
+        <li><a href="#contact" onclick="scrollToSection('contact')">Contact</a></li>
+    </ul>
+  </div>
+<!-- _________________________________________Home Section_________________________________________________  -->
+<div class="container_home mode-light">
+  <section id="home">
+    <div class="navbar_home">
+      <div class="logo_home">
+          <img class="mode-icon" onclick="toggleTheme()" src="Assets/Logo_Name.png" alt="logo_icon">
+      </div>
+      <div class="list_home">
+        <img src="Assets/Darkkkk.png" alt="mode_icon">
+        <img class="menu-icon" onclick="toggleMenu()"src="Assets/Menuuu.png" alt="menu_icon">
+      </div>
+    </div> 
+    <div class="main_home">
+        <p class="greeting" id="hi" onmouseover="greeting('#hi')">&#128075; Hi ! </p>   
+        <p class="text_home">
+          your friendly nieghborhood web developer. I build websites that are as smooth as a cup of coffee on a Monday morning fast ,responsive ,and ready to impress . Take a look at my work ,and let's team up to create something awesome ! <br>( or at least,something that won't crash when you click a button ).
+        </p>
+    </div>
+    </section>
+
+  <!-- _________________________________________Education Section_________________________________________________  -->
+<section id="education">
+  <div class="education mode-light" id="education">
+    <h1>Education</h1>
+    <div class="box">
+        <div class="box_left mode-light  colormode">
+            <h3>American Certification<br> 
+                In Web Development <br>
+            </h3>
+            <img src="Assets/certificate-of-completion-modern-web-development-preview.webp" alt="coding dojo certif">
+        </div>
+        <div class="box_right mode-light  colormode">
+            <h3>Certificate In JavaScript <br>
+                Development <br>
+            </h3>
+            <img src="Assets/java-web-development-certificate.jpg" alt="coding dojo certif">
+        </div>
+    </div>
+  </div>
+</section>
+      <!-- _________________________________________Technical-Skills Section_________________________________________________  -->
+
+<section id="technical-skills mode-light"  >
+    <div class="technical mode-light" >
+      <h1>Technical Skills</h1>
+      <div class="carousel">
+          <div class="arrow">
+          <button id="prev">&#60;</button>
+          </div>
+          <div class="carousel-content colormode">
+              <div class="front_end" data-technical="1">
+                  <h3>Front End <br></h3>
+              </div>
+              <div class="back_end" data-technical="2">
+                  <h3>Back End</h3>
+                  <P id="nothing"><br></P>
+              </div>
+              <div class="database" data-technical="3">
+                  <h3>Database</h3>
+                  <P id="nothing"></P>
+              </div>
+              <button id="detailsBtn">View Details</button>
+          </div>
+          <div class="arrow">
+          <button id="next">&#62;</button>
+          </div>
+      </div>
+  </div>
+  <div id="modal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <img id="screenshot" src="Assets/frontend1.png" alt="technical Screenshot">
+          <p id="technicalDetails"></p>
+      </div>
+  </div>
+</section>
+      <!-- _________________________________________Projects Section_________________________________________________  -->
+<!-- <section id="projects"></section> -->
+      <!-- _________________________________________Skills Section_________________________________________________  -->
+<!-- <section id="skills"></section> -->
+      <!-- _________________________________________Contact Section_________________________________________________  -->
+<!-- <section id="contact"></section> -->
+</div>
+<script src="portfolio.js"></script>
+</body>
+</html>
