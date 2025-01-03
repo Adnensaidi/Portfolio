@@ -9,43 +9,131 @@
 }
 /* Styles for dark mode */
 
+/* ---------------------------------------------------------welcome page --------------------------------------------------- */
+
+.hidden {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #774069;
+    color: white;
+    font-family: 'Kavoon', sans-serif;
+}
+
+.welcome-message {
+    font-size: 10em;
+    overflow: hidden;
+    color: #774069;
+    font-family: 'Kavoon', sans-serif;
+    color: white;
+    background: none; 
+    background-color: transparent;
+}
+
+.welcome-message span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards;
+    margin: 20px 20px;
+    background: none; 
+    background-color: transparent;
+}
+
+.welcome-message span:nth-child(1) {
+    animation-delay: 0.5s;
+}
+.welcome-message span:nth-child(2) {
+    animation-delay: 1s;
+}
+.welcome-message span:nth-child(3) {
+    animation-delay: 1.5s;
+}
+.welcome-message span:nth-child(4) {
+    animation-delay: 2s;
+}
+.welcome-message span:nth-child(5) {
+    animation-delay: 2,5s;
+}
+
+.introduction {
+    display: none; /*Masque l'introduction par défaut */
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes shake {
+    0% { transform: translate(0); }
+    25% { transform: translate(-5px, 0); }
+    50% { transform: translate(5px, 0); }
+    75% { transform: translate(-5px, 0); }
+    100% { transform: translate(0); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+
 
 /* _________________________________________Menu_________________________________________________ */
-body.menu-open {
-    overflow: hidden; /* Prevent scrolling when the menu is open */
-}
-/* Sidebar styling */
+
+/* Sidebar styling with transitions */
 .sidebar {
     position: fixed;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the menu */
+    left: -100%; /* Start off-screen */
+    transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-    padding: 30px;
-    display: none; /* Hide menu by default */
-    z-index: 1000; /* Ensure the menu is below the menu icon */
+    z-index: 1000;
     border-radius: 8px; /* Rounded corners */
-    width: 550px;
+    width: 650px;
+    height: 700px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: left 0.5s ease; /* Smooth sliding effect */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+/* When the menu is open */
+body.menu-open .sidebar {
+    left: 30%; /* Slide into the center */
+    overflow: hidden;
 }
 
-.sidebar ul {
+.sidebar ul li {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    height: 120px;
 }
 
 .sidebar li {
-    padding: 15px;
+    /* padding:25px; */
+
 }
 
 .sidebar a {
     color: rgb(100, 107, 136);
     text-decoration: none;
     display: block;
+    font-size: x-large;
+    font-family:fantasy;
+    background: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+    cursor: pointer; /* Indicate interactivity */
 }
 
+/* Hover effect */
 .sidebar a:hover {
+    transform: translateY(-10px); /* Lift the container slightly */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
     background-color: #575757;
 }
 
@@ -106,20 +194,19 @@ body.sidebar-open {
 .main_home {
     border-radius: 20px;
     width: 50%;
-    height: 50%;
-    padding: 20px;
+    height: 400px;
+    padding: 50px;
     gap: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* position: relative;
-    top: 200px; */
+    grid-template-columns: repeat(2, 1fr);
     border: 10px solid white;
     box-shadow: 20px 20px 20px 2px rgb(100, 107, 136);
     font-family: "Comic Sans MS", "Chalkduster", "Cursive", sans-serif; /* Choose a fun font */
-    font-size: 50px; /* Text size */
+    font-size:150px; /* Text size */
     font-weight: bold; /* Bold text for better visibility */
-    color: white; /* Bright color */
+    color: rgb(255, 255, 255); /* Bright color */
     letter-spacing: 2px; /* Letter spacing */
     text-transform: uppercase; /* Convert text to uppercase */
     text-shadow: 2px 2px 0px rgb(100, 107, 136); /* Add a shadow to give depth */
@@ -132,9 +219,16 @@ body.sidebar-open {
 }
 .text_home {
     font-family: sans-serif;
-    font-size: 20px;
-    background-color: rgb(100, 107, 136);
+    font-size: 30px;
+    background-color: rgb(59, 64, 86);
     border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+    cursor: pointer; /* Indicate interactivity */
+}
+/* Hover effect */
+.text_home:hover {
+    transform: translateY(-10px); /* Lift the container slightly */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
 }
 
 /* ________________________Animation Home ______________________ */
@@ -179,15 +273,27 @@ body.sidebar-open {
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
 }
+.box h3 {
+    background: none; 
+    background-color: transparent; 
+    font-size: xx-large;
+    color: rgb(100, 107, 136);
+}
+.education h1 {
+    background: none; 
+    background-color: transparent; 
+    color: rgb(100, 107, 136);
+    font-size: 80px;
 
+}
 .box_left {
     display: flex;
     justify-content: space-around;
     align-items: center; 
     font-family: 'Instrument Sans', sans-serif; 
     font-size: 15px;
-    border: 2px solid beige ;
-    background-color: beige;
+    border: 2px solid  rgb(100, 107, 136);
+    background-color:  rgb(100, 107, 136);
     height: 300px;
     border-radius: 5%;
     color:  rgb(100, 107, 136);
@@ -195,8 +301,9 @@ body.sidebar-open {
     gap: 50px;
     margin-right: 250px;
     padding: 20px;
-    box-shadow: 20px 20px 20px 2px silver;
+    box-shadow: 20px 20px 20px 2px  rgb(100, 107, 136);
     ;
+
 }
 
 
@@ -208,14 +315,14 @@ body.sidebar-open {
     font-family: 'Instrument Sans', sans-serif; 
     font-size: 15px;
     border-radius: 5%;
-    border: 2px solid beige ;
-    background-color:beige ;
+    border: 2px solid  rgb(100, 107, 136) ;
+    background-color: rgb(100, 107, 136) ;
     color:  rgb(100, 107, 136);
     width: 700px;
     gap: 50px;
     margin-left: 250px;
     padding: 20px;
-    box-shadow: 20px 20px 20px 2px  silver;
+    box-shadow: 20px 20px 20px 2px   rgb(100, 107, 136);
     ;
 }
 
@@ -225,115 +332,395 @@ body.sidebar-open {
     padding: 20px;
 }
 
-.box_left, .box_right,.skill-card {
+.box_left, .box_right,.skill-card , .container_footer {
     transition: transform 0.3s; 
 }
 
-.box_left:hover, .box_right:hover, .skill-card:hover{
+.box_left:hover, .box_right:hover, .skill-card:hover , .container_footer:hover {
     transform: scale(1.05); 
 }
 
 
 /* _________________________________________Technical Skills Section_________________________________________________ */
+.technicskills{
+    display: flex;
+    flex-direction: column;
+    gap: 200px;
+    background: none; 
+    background-color: transparent;
+}
 
-
-
-.technical {
-    /* display: flex;
+/* General Styles for Technical */
+.technical{
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 100px;
+    text-align: center;
+    gap: 100px; /* Space between elements */
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color:  rgb(100, 107, 136);
-    color: white; */
-    /* min-width: 300px; 
-    transition: transform 0.5s ease;
-    display: none;  */
-}
-.technical h1 {
-    /* color:  rgb(100, 107, 136);
-    font-size: 50px; */
+    background-color: rgb(100, 107, 136); /* Background color */
+    color: white; /* Text color */
+    width: 900px;
+    padding:10px; /* Ensure there's padding inside the section */
+    box-sizing: border-box; /* Includes padding in height/width */
+    background: none; 
+    background-color: transparent;
 }
 
+#technical-skills{
+    border-radius: 10%;
+}
+#technical-skills h1{
+    background-color: transparent;
+    background: none;
+}
+
+.technical h1, .soft_skills h1 {
+    color: white; /* Ensures the title is visible on the background */
+    font-size: 50px; /* Font size for the title */
+    margin: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+    cursor: pointer; /* Indicate interactivity */
+    }
+
+    /* Hover effect */
+.technical h1:hover , .soft_skills h1:hover , .container_softskills:hover {
+    transform: translateY(-10px); /* Lift the container slightly */
+    box-shadow: 0 10px 15px rgb(100, 107, 136); /* Enhance shadow on hover */
+}
+
+/* Carousel Styles */
 .carousel {
-    /* display: flex;
-    align-items: center; */
-    /* margin-left: 50px;
-    padding: 50px;
-    gap: 200px; */
+    overflow: hidden; /* Prevents showing elements outside the carousel */
+    position: relative; /* Ensures carousel items are positioned relative to the parent */
+    width: 100%; /* Ensures the carousel takes full width */
 }
 
 .carousel-content {
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    font-size: 30px;
-    overflow: hidden; */
-    width: 600px;
-    margin: 20px;
-    gap: 20px;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for sliding */
+    width: 100%; /* Ensures that the carousel's width is correct */
 }
 
-
-.technical.active {
-    display: block; 
+.carousel-content > div {
+    min-width: 100%; /* Each carousel item takes up 100% of the carousel width */
 }
 
-
-.arrow {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: rgb(100, 107, 136);
-}
-.arrow button {
-    background-color:  rgb(100, 107, 136);
-    padding: 20px;
-    border: none;
-    border-radius: 25px;
+/* Styling for Titles inside Carousel */
+.carousel-content h3 {
+    font-size: 30px; /* Font size for section titles inside carousel */
+    margin: 20px 0;
+    cursor: pointer; /* Shows a pointer cursor indicating it’s clickable */
+    color: white;
 }
 
+.carousel-content h3:hover {
+    text-decoration: underline; /* Adds underline effect on hover */
+}
+
+/* Modal Styling */
 .modal {
-    display: none;
+    display: none; /* Hidden by default */
     position: fixed;
-    z-index: 1;
+    z-index: 1; /* Places the modal above other elements */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(100, 107, 136);
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
 }
 
 .modal-content {
-    background-color: #fff;
-    margin: 15% auto;
+    background-color: #fff; /* White background for the modal */
+    margin: 10% auto; /* Centers the modal vertically and horizontally */
     padding: 20px;
-    border: 1px solid  rgb(100, 107, 136);
-    width: 80%;
+    border-radius: 10px; /* Rounded corners for the modal */
+    width: 80%; /* Modal width is 80% of the viewport */
+    max-width: 600px; /* Maximum width for the modal */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow effect for depth */
+    text-align: center; /* Center-aligns the modal content */
 }
 
+.modal-content img {
+    width: 30%; /* Images take the full width of the modal */
+    margin-bottom: 10px;
+    border-radius: 8px; /* Slightly rounded corners for images */
+}
+
+/* Close Button Styling */
 .close {
-    color: rgb(100, 107, 136);
-    float: right;
-    font-size: 28px;
+    position: absolute; /* Position the close button within the modal */
+    top: 10px;
+    right: 20px;
+    color: rgb(100, 107, 136); /* Button color */
+    font-size: 28px; /* Font size for the close button */
     font-weight: bold;
+    cursor: pointer; /* Indicates the button is clickable */
 }
 
 .close:hover,
 .close:focus {
-    color: white;
+    color: white; /* Changes color when hovered or focused */
     text-decoration: none;
     cursor: pointer;
 }
 
-#detailsBtn {
-    color: #2C2A32 ;
-    background-color: rgb(100, 107, 136);
-    padding: 10px;
+/* Additional Carousel Navigation Buttons */
+#prev-technical, #next-technical {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
     border: none;
-    border-radius: 25px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+}
+
+#prev-technical {
+    left: 10px;
+}
+
+#next-technical {
+    right: 10px;
+}
+
+#prev-technical:hover, #next-technical:hover{
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+}
+
+/* Modal Overlay Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Ensures the modal appears on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Adds semi-transparent black background */
+    overflow: auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+.technical{
+    height: auto; /* Allow sections to grow as needed */
+    gap: 50px; /* Adjust space between elements on smaller screens */
+    }
+
+.carousel-content h3 {
+    font-size: 24px; /* Smaller font size for smaller screens */
+    }
+}
+
+/* _________________________________________Soft Skills Section_________________________________________________ */
+.soft_skills{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px; /* Space between elements */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: rgb(100, 107, 136); /* Background color */
+    color: white; /* Text color */
+    height: 300px;
+    width: 500px;
+    padding:50px; /* Ensure there's padding inside the section */
+    border-radius: 20%;
+    background: none;
+    background-color: transparent;
+}
+.container_softskills{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 50px;
+    background: none; 
+    background-color: transparent;
+    transition: transform 0.3s ease,box-shadow 0.3s ease;
+}
+.container_softskills h3 {
+    background: none; 
+    background-color: transparent;
+    font-size: 30px;
+}
+.container_softskills img {
+    height: 100px;
+    width: 100px;
+    background: none;
+    background-color: transparent;
+}
+.main_softskills {
+    display: flex;
+    flex-direction: column;
+    background: none;
+    background-color: transparent;
+}
+.box_softskills{
+    background-color: transparent;
+    background: none;
+}
+.box_softskills p {
+    height: 70px;
+    background: none;
+    background-color: transparent;
+}
+
+
+/* _________________________________________Project Section_________________________________________________ */
+
+.projects {
+    display: flex;
+    flex-direction: row;
+    height: 40rem;
+    width: 100rem ;
+    justify-content: space-between;
+    text-align: center;
+    
+}
+.leftproject {
+    width: 100%;
+}
+.rightproject {
+    height: 500px;
+    display: flex;
+    text-align: center;
+    
+}
+.rightproject ul li p  {
+    text-decoration: none;
+    color: rgb(100, 107, 136);
+    padding: 20px;
+
+}
+ul li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    height: 200px;
+}
+
+.image-links {
+    padding: 30px;
+    background-color: transparent;
+    background: none;
+}
+
+.image-links a  {
+    text-decoration: none;
+    color: rgb(100, 107, 136);
+    
+}
+.image-links a h4{
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(100, 107, 136);
+    background-color: transparent;
+    background: none;
+    font-size: xx-large;
+}
+
+.image-links a:hover {
+    text-decoration: none;
+}
+
+.preview {
+    border: 1px solid #ccc;
+    width: 750px;
+    height: 620px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.preview img {
+    max-width: 100%;
+    max-height: 100%;
+    display: none; 
+}
+.proj{
+    color:rgb(100, 107, 136);
+    font-size: 80px;
+    width: 80rem;
+    background-color: transparent;
+    background: none;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.consec {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+
+/* _________________________________________Contact Section_________________________________________________ */
+
+
+.container_footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 900px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 20px 20px 20px 2px  rgb(100, 107, 136);
+    margin: 500px auto;
+    color:  rgb(100, 107, 136);
+    padding: 100px;
+}
+
+.container_footer h2 {
+    font-size: 100px;
+    text-align: start;
+}
+.hr {
+    columns: rgb(100, 107, 136);
+    height: 5px;
+    width: 800px;
+}
+.social-links {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+}
+
+.social-link {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+}
+.contact h2{
+    display: flex;
+    flex-direction: column;
+    
+}
+.avatar1 {
+    border-radius: 50%;
+    padding: 50px;
+    background-color: transparent;
+    background: none;
+    width: 550px;
+}
+
+.avatar1 img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
 }
